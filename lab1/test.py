@@ -72,8 +72,8 @@ epochs = mne.Epochs(raw,events,tmin=-0.2, tmax=0.6, event_id=event_dict, preload
 evoked = epochs.average()
 #evoked.plot(picks='mag')
 
-#fig = evoked.plot_topomap(0.17, ch_type="mag", show_names=True, colorbar=False, size=6, res=128)
-#fig.suptitle("Visual response")
+fig = evoked.plot_topomap(0.17, ch_type="mag", show_names=True, colorbar=False, size=6, res=128)
+fig.suptitle("Visual response")
 
 #epochs.plot_image(picks=["MEG1611", "MEG1631"])
 
