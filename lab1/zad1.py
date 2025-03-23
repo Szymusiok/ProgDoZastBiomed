@@ -9,7 +9,9 @@ import matplotlib.pyplot as plt
 # over analysing the averaged signal from all channels.
 
 # Load file
-raw = mne.io.read_raw_fif('dane/sub-01_ses-meg_task-facerecognition_run-01_meg.fif', preload=True)
+DANE = 'dane/sub-01_ses-meg_task-facerecognition_run-01_meg.fif'
+
+raw = mne.io.read_raw_fif(DANE, preload=True)
 # Put a filter (1-40Hz) to clean data
 raw.filter(1, 40, fir_design='firwin')
 print()
@@ -23,17 +25,18 @@ event_dict = {
 }
 print()
 
-epochs = mne.Epochs(raw, events, event_id=event_dict, tmin=-0.2, tmax=0.6, baseline=(None, 0), preload=True)
+epochs = mne.Epochs(
+    raw, events, event_id=event_dict, tmin=-0.2, tmax=0.6,
+    baseline=(None, 0), preload=True
+)
 
 for trigger in event_dict.keys():
 
     # Calculate average from all channels for specified trigger
     evoked = epochs[trigger].average()
 
-    fig = evoked.plot_topomap(0.17, ch_type="mag", show_names=True, colorbar=True, size=6, res=128)
-    fig.suptitle("Visual response")
-
-    avg_all_channels = np.mean(evoked.data, axis=0)
+    picks = mne.pick_types(evoked.info, meg='mag', eeg=False)
+    avg_all_channels = np.mean(evoked.data[picks,:], axis=0)
 
     if 'MEG1631' in evoked.ch_names:
         idx = evoked.ch_names.index('MEG1631')
@@ -52,12 +55,8 @@ for trigger in event_dict.keys():
     plt.legend()
     plt.show()
 
-    plt.figure(figsize=(10, 5))
-    plt.plot(times, avg_all_channels, label='All channels', color='blue')
-    plt.plot(times, signal_MEG1631, label='MEG1631', color='red')
-    plt.title(f"Zoomed amplitude response for {trigger}")
-    plt.xlabel('Time [s]')
-    plt.ylabel('Amplitude')
-    plt.legend()
-    plt.ylim(-2e-12, 2e-12)
-    plt.show()
+    fig = evoked.plot_topomap(
+        0.17, ch_type="mag", show_names=True,
+        colorbar=False, size=6, res=128
+    )
+    fig.suptitle("Visual response")
