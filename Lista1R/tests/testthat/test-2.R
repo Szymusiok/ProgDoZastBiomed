@@ -1,9 +1,11 @@
 library(testthat)
 library(Lista1R)
 
+context("Zadanie 2")
+
 test_that("wspolne: poprawne przypadki", {
   expect_equal(wspolne(c(1,2,2,3), c(2,2,5)), 2)
-  expect_equal(wspolne(c(3,1,2), c(2,1,4)), c(3,1,2)[c(3,1,2) %in% c(2,1,4)])
+  expect_equal(wspolne(c(3,1,2), c(2,1,4)), c(1,2))
   expect_equal(wspolne(c("a","b","c"), c("c","d","a")), c("a","c"))
   expect_equal(wspolne(c(5,5,5), c(5,5)), 5)
   expect_equal(wspolne(c(TRUE, FALSE, TRUE), c(FALSE, NA)), FALSE)

@@ -42,7 +42,9 @@ wspolne <- function(x,y)
   return(result)
 }
 
-
+#' Źródła
+#'
+#' https://www.rdocumentation.org/
 
 
 

@@ -1,6 +1,8 @@
 library(testthat)
 library(Lista1R)
 
+context("Zadanie 1")
+
 testthat::test_that("Heron: przykłady poprawne",{
   testthat::expect_equal(heron(3,4,5), 6)
   testthat::expect_equal(heron(5,5,5), (sqrt(3)/4)*25)

@@ -52,7 +52,7 @@ heron <- function(a,b,c)
   return(s)
 }
 
-#' Bibliografia
+#' Źródła
 #'
 #' https://www.rdocumentation.org/
 #' https://cloud2.edupage.org/cloud/Warunek_istnienia_trojkata.pdf?z%3ATcDy75Cy0k9qN6ymFUp%2BxFnx0I7929qd%2BsXqx8CdY063%2FTK5b80u%2F%2Fm9mOtpHsDc
