@@ -1,8 +1,8 @@
-#'
 #' @author Szymon Kubica 264068
 #'
-#' Oblicza pola trójkąta według wzoru Herona
+#' @title Oblicza pola trójkąta według wzoru Herona
 #'
+#' @description
 #' Funkcja \code{heron} oblicza pole trójkąta dla podanych długości boków
 #' za pomocą wozru Herona. Sprawdza poprawność argumentów i
 #' istnienie trójkąta.
