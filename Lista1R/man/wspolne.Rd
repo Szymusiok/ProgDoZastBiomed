@@ -20,14 +20,11 @@ elementów, zwraca wektor długośći 0.
 }
 \description{
 Funkcja \code{wspolne} zwraca multizbiór bedący częścią wspólną
-dwóch podanych wektorów \code{x} i \code{y}, tzn. każdy element
-pojawia się w wyniku tyle razy, ile wynosi minimalna liczba jego
-wystąpień.
+dwóch podanych wektorów \code{x} i \code{y}.
 }
 \examples{
-wspolne(c(1,2,3), c(2,2,4)) # -> c(2,2)
+wspolne(c(1,2,3), c(2,2,4)) # -> c(2)
 wspolne(c("a","b","a"), c("b","b")) # -> "b"
-wspolne(1:3, 4:6)                  # -> []
 
 }
 \author{
