@@ -70,10 +70,6 @@ fibonacci <- function(n, iter = FALSE)
   }
 }
 
-
 #' Źródła
 #'
 #' https://www.rdocumentation.org/
-
-
-
