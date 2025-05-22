@@ -1,0 +1,13 @@
+Package: Lista1R
+Type: Package
+Title: Lista 1 język R
+Version: 0.0.1
+Authors@R: 
+    person("Szymon", "Kubica", , "264068@student.pwr.edu.pl")
+Description: Skrypty z zadaniami, dokumentacja oraz testy
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+  crayon (>= 1.4.2),
+  testthat (>= 3.0.0)

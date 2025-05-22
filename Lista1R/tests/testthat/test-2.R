@@ -1,0 +1,31 @@
+library(testthat)
+library(Lista1R)
+
+context("Zadanie 2")
+
+test_that("wspolne: poprawne przypadki", {
+  expect_equal(wspolne(c(1,2,2,3), c(2,2,5)), 2)
+  expect_equal(wspolne(c(3,1,2), c(2,1,4)), c(1,2))
+  expect_equal(wspolne(c("a","b","c"), c("c","d","a")), c("a","c"))
+  expect_equal(wspolne(c(5,5,5), c(5,5)), 5)
+  expect_equal(wspolne(c(TRUE, FALSE, TRUE), c(FALSE, NA)), FALSE)
+  expect_equal(wspolne(numeric(0), numeric(0)), numeric(0))
+  expect_equal(wspolne(letters, letters), letters)
+  expect_equal(wspolne(c("x","y"), c("z","w")), character(0))
+  expect_true(is.na(wspolne(c(NA,1,NA), c(NA,2))))
+  expect_equal(wspolne(1L:5L, c(3L,6L)), 3L)
+  expect_equal(wspolne(c("1","2","3"), c("2","4")), "2")
+  expect_equal(wspolne(c("k","a","k","b"), c("b","k")), c("k","b"))
+})
+
+test_that("wspolne: niepoprawne argumenty", {
+  expect_error(wspolne(1:3))
+  expect_error(wspolne(y = 1:3))
+  expect_error(wspolne(list(1,2), c(1,2)))
+  expect_error(wspolne(1:3, as.numeric(1:3)))
+  expect_error(wspolne(c(1,2), c("1","2")))
+  expect_error(wspolne(c(TRUE,FALSE), c(1,0)))
+  expect_error(wspolne(NULL, 1:2))
+  expect_error(wspolne(1:2, NULL))
+  expect_true(is.na(wspolne(NA, NA)))
+})
